@@ -3,6 +3,7 @@ Feature: Account Summary Functionality
   Background:
     Given the user is on the login page
     And User logins with username "username" and password "password"
+
   @wip
   Scenario:  Account Summary page account types should be as expected
     Then the "Account Summary" page should be displayed
@@ -11,3 +12,7 @@ Feature: Account Summary Functionality
       | Investment Accounts |
       | Credit Accounts     |
       | Loan Accounts       |
+    Then Credit Accounts table must have columns
+      | Account     |
+      | Credit Card |
+      | Balance     |

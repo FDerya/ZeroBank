@@ -8,4 +8,8 @@ import java.util.List;
 public class AccountSummaryPage extends BasePage{
     @FindBy(tagName = "h2")
     public List<WebElement> accountTypes;
+
+    @FindBy(xpath = "(//table)[3]//th")
+    public List<WebElement> creditColumns;
+
 }
