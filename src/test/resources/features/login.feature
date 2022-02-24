@@ -8,6 +8,12 @@ Feature: Online Banking Login Feature
     Then the "Account Summary" page should be displayed
 
   @wip
-  Scenario: Unauthorized users should NOT be able to login
-    And User logins with username "wrong" and password "wrong"
+  Scenario Outline: Unauthorized users should NOT be able to login <usernameInput>
+    And User logins with username "<usernameInput>" and password "<passwordInput>"
     Then Error message "Login and/or password are wrong." should be displayed
+    Examples:
+    |usernameInput|passwordInput|
+    |username     |wrong        |
+    |wrong        |password     |
+    |username     |             |
+    |             |password     |
