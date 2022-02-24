@@ -7,4 +7,5 @@ Feature: Account Activity Functions
   Scenario: Verifying Account Drop Down Options
     And User navigates to "Account Activity"
     Then the "Account Activity" page should be displayed
-    Then Account drop down should have "Savings" selected
+    And user select "Loan" option
+    Then Account drop down should have "Loan" selected

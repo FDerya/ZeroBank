@@ -13,4 +13,9 @@ public class AccountActivityPage extends BasePage{
         Select select = new Select(dropdownElement);
         return select.getFirstSelectedOption().getText();
     }
+
+    public void selectOption(String option){
+        Select select = new Select(dropdownElement);
+        select.selectByVisibleText(option);
+    }
 }
