@@ -17,3 +17,4 @@ Feature: Online Banking Login Feature
     |wrong        |password     |
     |username     |             |
     |             |password     |
+    |             |             |
