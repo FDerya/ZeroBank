@@ -5,6 +5,7 @@ import com.zerobank.utilities.ConfigurationReader;
 import com.zerobank.utilities.Driver;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 public class LoginStepDefs {
@@ -20,11 +21,12 @@ public class LoginStepDefs {
         loginPage.loginBox.sendKeys(userName);
         loginPage.passwordBox.sendKeys(passWord);
         loginPage.submit.click();
-    //    Driver.get().get("http://zero.webappsecurity.com/bank/account-summary.html");
+        Driver.get().get("http://zero.webappsecurity.com/bank/account-summary.html");
     }
     @Then("the {string} page should be displayed")
-    public void the_page_should_be_displayed(String string) {
-
+    public void the_page_should_be_displayed(String expectedTab) {
+        String actualTitle = Driver.get().getTitle();
+        Assert.assertTrue(actualTitle.contains(expectedTab));
     }
 
 }
