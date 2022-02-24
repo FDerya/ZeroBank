@@ -18,10 +18,16 @@ public class LoginStepDefs {
     }
     @Given("User logins with username {string} and password {string}")
     public void user_logins_with_username_and_password(String userName, String passWord) {
-        loginPage.loginBox.sendKeys(userName);
-        loginPage.passwordBox.sendKeys(passWord);
-        loginPage.submit.click();
-        Driver.get().get("http://zero.webappsecurity.com/bank/account-summary.html");
+       if(userName.equals(ConfigurationReader.get("userName"))&&passWord.equals(ConfigurationReader.get("passWord"))) {
+           loginPage.loginBox.sendKeys(userName);
+           loginPage.passwordBox.sendKeys(passWord);
+           loginPage.submit.click();
+           Driver.get().get("http://zero.webappsecurity.com/bank/account-summary.html");
+       }else{
+           loginPage.loginBox.sendKeys(userName);
+           loginPage.passwordBox.sendKeys(passWord);
+           loginPage.submit.click();
+       }
     }
     @Then("the {string} page should be displayed")
     public void the_page_should_be_displayed(String expectedTab) {
@@ -29,4 +35,9 @@ public class LoginStepDefs {
         Assert.assertTrue(actualTitle.contains(expectedTab));
     }
 
+    @Then("Error message {string} should be displayed")
+    public void errorMessageShouldBeDisplayed(String expectedError) {
+        String actualError = loginPage.errorMessage.getText();
+        Assert.assertEquals("Verify the Message",expectedError,actualError);
+    }
 }

@@ -16,4 +16,7 @@ public class LoginPage extends BasePage{
 
     @FindBy(xpath = "//input[@name='submit']")
     public WebElement submit;
+
+    @FindBy(xpath = "//div[@class='alert alert-error']")
+    public WebElement errorMessage;
 }
