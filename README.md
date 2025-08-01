@@ -27,6 +27,11 @@ The main goals of this project are:
 2. Install **Apache Maven**.
 3. Clone this repository.
 
+```bash
+   git clone <repository-url>
+   cd ZeroBank-main
+```
+
 ### Run Tests
 From the project root directory, execute:
 
